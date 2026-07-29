@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block body %}
+<h1>Bienvenue sur Guessr 🎯</h1>
+
+<p>Entrez votre nom pour commencer à jouer.</p>
+
+<form method="post">
+    <label for="name">Votre nom :</label>
+    <input type="text" id="name" name="name" required>
+
+    <button type="submit">Commencer</button>
+</form>
+{% endblock %}

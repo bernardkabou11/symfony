@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Résultat{% endblock %}
+
+{% block body %}
+<h1>Résultat 🎲</h1>
+
+<p>Vous avez choisi : <strong>{{ guess }}</strong></p>
+<p>Le nombre à deviner était : <strong>{{ target }}</strong></p>
+
+{% if correct == 1 %}
+    <p style="color: green;"><strong>Bravo ! Vous avez gagné 10 points 🎉</strong></p>
+{% else %}
+    <p style="color: red;"><strong>Dommage ! Essayez encore 😅</strong></p>
+{% endif %}
+
+<p>Score actuel : <strong>{{ player.score }}</strong></p>
+
+<a href="{{ path('play', {id: player.id}) }}">Rejouer</a>
+{% endblock %}

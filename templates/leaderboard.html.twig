@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Classement{% endblock %}
+
+{% block body %}
+<h1>Classement 🏆</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Joueur</th>
+            <th>Score</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for player in players %}
+            <tr>
+                <td>{{ player.name }}</td>
+                <td>{{ player.score }}</td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="2">Aucun joueur pour le moment.</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

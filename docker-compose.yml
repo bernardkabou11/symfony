@@ -1,0 +1,28 @@
+services:
+  php:
+    build: ./docker/php
+    container_name: guessr-php
+    volumes:
+      - .:/var/www/html
+    depends_on:
+      - db
+
+  nginx:
+    build: ./docker/nginx
+    container_name: guessr-nginx
+    ports:
+      - "8080:80"
+    volumes:
+      - .:/var/www/html
+    depends_on:
+      - php
+
+  db:
+    image: postgres:15
+    container_name: guessr-db
+    environment:
+      POSTGRES_DB: guessr
+      POSTGRES_USER: symfony
+      POSTGRES_PASSWORD: symfony
+    ports:
+      - "5432:5432"
